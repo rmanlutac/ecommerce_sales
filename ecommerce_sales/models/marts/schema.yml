@@ -1,0 +1,83 @@
+
+version: 2
+
+models:
+  - name: fct_sales
+    description: "Staging view for sales transaction."
+    columns:
+      - name: sales_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: invoice_no
+        description: 'Invoice number for each sale.'
+      - name: product_id
+        description: 'Id for product purchased.'
+        tests:
+          - relationships:
+              to: ref('dim_product')
+              field: product_id
+      - name: quantity
+        description: 'No. of quantities sold.'
+      - name: unit_price
+        description: 'Price per unit.'
+      - name: total_sales
+        description: 'Total amount of sales. No. of quantities multiplied by price per unit.'
+      - name: invoice_date
+        description: 'Invoice date.'
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date_day
+      - name: invoice_time
+        description: 'Invoice time.'
+      - name: customer_id
+        description: 'Id for the customer information.'
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_id
+      - name: country_code
+        description: 'Id for country details.'
+        tests:
+          - relationships:
+              to: ref('dim_country')
+              field: country_code
+
+  - name: dim_product
+    description: "Dimension table for product details."
+    columns:
+      - name: product_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: product_description
+        description: 'Product name.'
+
+  - name: dim_customer
+    description: "Dimension table for customer details."
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: 'Dummy names for customers.'
+
+  - name: dim_country
+    description: "Dimension table for countries."
+    columns:
+      - name: country_code
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: latitude
+        description: 'Latitude of country.'
+      - name: longitude
+        description: 'Longitude of country.'
+      - name: country_name
+        description: 'Name of countries.'
