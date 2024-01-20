@@ -13,6 +13,6 @@ As mentioned in this <a href="https://datamonkeysite.com/2022/04/17/using-duckdb
 
 Method used in this project:
 Since we have the duckdb library installed in our virtual environment, we used the python connector in power query to access the duckdb database as shown in this sample.
-![Alt text](/images/image.png)
+![Alt text](/images/image_sc.png)
 
 Feel free to access the final dashboard <a href="https://app.powerbi.com/view?r=eyJrIjoiMzNhNGI3ZTYtYmViMC00NTQyLWI4OTMtZGI3YWUzMjkwOWFhIiwidCI6IjZiNTIwZmEwLWVhNjYtNDg5Yy05OGQ1LTlkNTJlYzA0NjlmNCIsImMiOjF9" target="_blank">here!</a> 
