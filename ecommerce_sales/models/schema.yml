@@ -1,0 +1,12 @@
+version:  2
+
+sources:
+  - name: duckdb_sample_db
+    description:  'A sample duckdb database to load the csv files.'
+    database: sample_db
+    schema: main
+    tables:
+      - name: sales_invoice
+        description:  'Table for ecommerce sales transactions'
+      - name: country
+        description: 'Raw table for list of countries with country code, latitude, and logitude.'
